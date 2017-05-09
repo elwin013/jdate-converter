@@ -1,0 +1,28 @@
+{
+  "name": "jdate-converter",
+  "version": "0.0.1",
+  "description": "Java dateformat converter to JavaScript dateformat",
+  "main": "jdate-converter.js",
+  "scripts": {
+    "preversion": "npm test",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elwin013/jdate-converter.git"
+  },
+  "keywords": [
+    "datetime",
+    "dateformat",
+    "date",
+    "time",
+    "simpledateformat"
+  ],
+  "author": "Kamil Banach <kontakt@elwin013.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.3.0"
+  }
+}
