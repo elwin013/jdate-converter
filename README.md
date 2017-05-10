@@ -29,6 +29,8 @@ angular.module("yourModule")
     };
 ```
 
+Important: service have working format cache (you don't have to create it on your own).
+
 ### Contribution
 You're interested in contributing? Awesome! Fork, make change, commit and create
 pull request. I'll do my best to merge changes!
