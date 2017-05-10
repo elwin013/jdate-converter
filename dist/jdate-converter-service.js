@@ -46,7 +46,8 @@
 
 	'use strict';
 	
-	var converter = __webpack_require__(1),
+	var angular = __webpack_require__(1),
+	    converter = __webpack_require__(2),
 	    module = angular.module("jdateConverter", []);
 	
 	module.service("jdateConverter", function () {
@@ -59,6 +60,12 @@
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+	module.exports = angular;
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 	/*

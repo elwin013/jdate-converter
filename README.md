@@ -7,7 +7,7 @@ Based on:
  * [Locale utils from BootsFaces-OSP](https://github.com/TheCoder4eu/BootsFaces-OSP/blob/master/src/main/java/net/bootsfaces/utils/LocaleUtils.java)
 
 ### Usage
-Install with npm and then:
+Install with npm (or bower) and then:
 
 ```javascript
 var converter = require("jdate-converter");
@@ -16,6 +16,17 @@ var date = converter.toJsDate("dd/MM/yyyy")
 
 // date = "D/MM/YYYY"
 
+```
+
+### Usage in AngularJS
+Install with npm (or bower) and then add module `jdateConverter` to your app. Now you can use service named `jdateConverter`:
+
+```javascript
+angular.module("yourModule")
+    .controller("YourService", function($scope, jdateConverter) {
+        $scope.myDateFormat = jdateConverter.toJsDate("dd/MM/yyyy");
+        // $scope.myDateFormat should be "D/MM/YYYY"
+    };
 ```
 
 ### Contribution

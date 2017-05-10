@@ -1,5 +1,6 @@
 'use strict';
-var converter = require("./jdate-converter"),
+var angular = require("angular"),
+    converter = require("./jdate-converter"),
     module = angular.module("jdateConverter", []);
 
 module.service("jdateConverter", function () {
