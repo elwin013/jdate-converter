@@ -1,0 +1,32 @@
+{
+  "name": "jdate-converter",
+  "version": "0.1.0",
+  "homepage": "https://github.com/elwin013/jdate-converter",
+  "authors": [
+    "Kamil Banach <kontakt@elwin013.com>"
+  ],
+  "description": "Java dateformat converter to JavaScript dateformat",
+  "main": "dist/jdate-converter-service.js",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "datetime",
+    "dateformat",
+    "date",
+    "time",
+    "simpledateformat"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "src",
+    ".gitignore",
+    "*.json"
+  ],
+  "dependencies": {
+    "angular": "~1.5.x"
+  }
+}

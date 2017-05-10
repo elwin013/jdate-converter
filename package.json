@@ -7,8 +7,9 @@
     "preversion": "npm test",
     "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags",
-    "pretest" : "jslint '*.js'",
-    "test": "mocha"
+    "pretest": "jslint 'src/*.js'",
+    "test": "mocha",
+    "build": "webpack && uglifyjs ./src/jdate-converter-service.js --compress --mangle -o ./dist/jdate-converter-service.min.js --source-map ./dist/jdate-converter-service.min.js.map"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,12 @@
   "author": "Kamil Banach <kontakt@elwin013.com>",
   "license": "MIT",
   "devDependencies": {
+    "angular": "^1.5.x",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
     "jslint": "^0.10.3",
-    "mocha": "^3.3.0"
+    "mocha": "^3.3.0",
+    "webpack": "^1.13.1"
   }
 }

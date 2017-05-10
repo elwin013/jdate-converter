@@ -1,4 +1,4 @@
-var converter = require("../jdate-converter");
+var converter = require("../src/jdate-converter");
 var assert = require("assert");
 
 describe("Java to JS date", function() {
