@@ -4,16 +4,14 @@ var angular = require("angular"),
     module = angular.module("jdateConverter", []);
 
 module.service("jdateConverter", function () {
-    var vm = this;
+    var vm = this,
+        formatCache = {};
 
-    var formatCache = {};
 
     vm.toJsDate = function (dateFormat) {
-        if(formatCache[dateFormat]  !== undefined) {
-            return formatCache[dateFormat];
-        } else {
-            formatCache[dateFormat] = converter.toJsDate(dateFormat)
-            return formatCache[dateFormat];
+        if (formatCache[dateFormat] === undefined) {
+            formatCache[dateFormat] = converter.toJsDate(dateFormat);
         }
+        return formatCache[dateFormat];
     };
 });
