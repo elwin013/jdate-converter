@@ -7,6 +7,7 @@
     "preversion": "npm test",
     "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags",
+    "pretest" : "jslint '*.js'",
     "test": "mocha"
   },
   "repository": {
@@ -23,6 +24,7 @@
   "author": "Kamil Banach <kontakt@elwin013.com>",
   "license": "MIT",
   "devDependencies": {
+    "jslint": "^0.10.3",
     "mocha": "^3.3.0"
   }
 }
