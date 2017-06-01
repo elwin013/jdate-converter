@@ -2,7 +2,7 @@
   "name": "jdate-converter",
   "version": "0.0.5",
   "description": "Java dateformat converter to JavaScript dateformat",
-  "main": "jdate-converter.js",
+  "main": "src/jdate-converter.js",
   "scripts": {
     "preversion": "npm test",
     "version": "npm run build && git add -A dist",
