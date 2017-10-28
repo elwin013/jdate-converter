@@ -32,6 +32,7 @@
             "MM": "MM",     // (month in year - two digits, 01..12);
             "MMM": "MMM",   // (month in year - short text);
             "MMMM": "MMMM", // (month in year - full text);
+            "MMMMM": "MMMM",// (month in year - full text);
             "h": "h",       // (hour - one or two digits, 12 hours, 1..12);
             "hh": "hh",     // (hour - two digits, 12 hours, 01..12);
             "H": "H",       // (hour - one or two digits, 24 hours, 0..23);
@@ -45,8 +46,8 @@
             "s": "s",       // (seconds- one or two digits);
             "ss": "ss",     // (seconds - two digits);
             "S": "S",       // (millisecond);
-            "SS": "SS",    // (millisecond);
-            "SSS": "SSS",  // (millisecond);
+            "SS": "SS",     // (millisecond);
+            "SSS": "SSS",   // (millisecond);
             "E": "ddd",     // (day name in week - short);
             "EE": "ddd",    // (day name in week - short);
             "EEE": "ddd",   // (day name in week - short);
