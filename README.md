@@ -14,7 +14,7 @@ var converter = require("jdate-converter");
 
 var date = converter.toJsDate("dd/MM/yyyy")
 
-// date = "D/MM/YYYY"
+// date = "DD/MM/YYYY"
 
 ```
 
