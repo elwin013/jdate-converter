@@ -25,7 +25,7 @@ Install with npm (or bower) and then add module `jdateConverter` to your app. No
 angular.module("yourModule")
     .controller("YourService", function($scope, jdateConverter) {
         $scope.myDateFormat = jdateConverter.toJsDate("dd/MM/yyyy");
-        // $scope.myDateFormat should be "D/MM/YYYY"
+        // $scope.myDateFormat should be "DD/MM/YYYY"
     };
 ```
 
