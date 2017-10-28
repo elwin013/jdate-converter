@@ -102,11 +102,13 @@
 	        "YYY": null, // (week year - three digits);
 	        "YYYY": "gggg", // (week year - all digits);
 	        "a": "A", // (AM or PM);
+	        "aa": "AA", // (AM or PM);
 	        "G": null, // (era - AD or BC);
 	        "M": "M", // (month in year - two digits, 1..12);
 	        "MM": "MM", // (month in year - two digits, 01..12);
 	        "MMM": "MMM", // (month in year - short text);
 	        "MMMM": "MMMM", // (month in year - full text);
+	        "MMMMM": "MMMM", // (month in year - full text);
 	        "h": "h", // (hour - one or two digits, 12 hours, 1..12);
 	        "hh": "hh", // (hour - two digits, 12 hours, 01..12);
 	        "H": "H", // (hour - one or two digits, 24 hours, 0..23);
@@ -161,52 +163,54 @@
 	        return subFormat;
 	    };
 	
+	    obj.getMappedIndex = function (formatString, mapping, beginIndex, currentIndex) {
+	        do {
+	            currentIndex += 1;
+	        } while (mapping[formatString.substring(beginIndex, currentIndex)] !== undefined && currentIndex < formatString.length);
+	        return currentIndex;
+	    };
+	
 	    obj.translate = function (formatString, mapping, escapeSource, escapeTarget) {
 	        var len = formatString.length,
-	            beginIndex = 1,
-	            lastChar = null,
-	            currentChar = "",
-	            result = "",
 	            i = 0,
-	            fragment = "",
-	            escapeEarlyStart = formatString.charAt(0) === escapeSource.charAt(0);
+	            beginIndex = 0,
+	            index = 0,
+	            result = "",
+	            fragment = "";
 	
 	        // hack for Java single quote char ( '' -> '), part 1/2
 	        formatString = this.replaceAll(formatString, "''", "\u0007");
 	
-	        for (i = 0; i < len; i += 1) {
-	            currentChar = formatString.charAt(i);
-	            if (i > 0 && lastChar !== currentChar) {
-	                fragment = obj.mapFragment(formatString, mapping, beginIndex, i);
-	                result += fragment;
-	                beginIndex = i;
-	                if (i < formatString.length) {
-	                    lastChar = currentChar;
-	                }
-	            }
-	
-	            if (currentChar === escapeSource[0]) {
-	                i += 1;
-	                while (i < formatString.length && formatString.charAt(i) !== escapeSource[1]) {
+	        while (i < len) {
+	            if (formatString.charAt(beginIndex) === escapeSource[0]) {
+	                while (i + 1 < formatString.length && formatString.charAt(i + 1) !== escapeSource[1]) {
 	                    i += 1;
 	                }
 	                result += escapeTarget[0];
-	                if (escapeEarlyStart) {
-	                    result += formatString.substring(beginIndex, i);
-	                } else {
-	                    result += formatString.substring(beginIndex + 1, i);
-	                }
+	                result += formatString.substring(beginIndex + 1, i + 1);
 	                result += escapeTarget[1];
-	                i += 1;
-	                if (i < formatString.length) {
-	                    lastChar = formatString.charAt(i);
-	                }
+	                i += 2;
 	                beginIndex = i;
 	            }
-	        }
 	
-	        if (beginIndex < formatString.length && i <= formatString.length) {
-	            result += obj.mapFragment(formatString, mapping, beginIndex, i);
+	            // map fragment
+	            index = obj.getMappedIndex(formatString, mapping, beginIndex, i);
+	            fragment = formatString.substring(beginIndex, index);
+	            if (mapping[fragment] !== null) {
+	                if (mapping[fragment] !== undefined) {
+	                    // if we get mapping add it to result
+	                    result += mapping[fragment];
+	                } else if (mapping[formatString.substring(beginIndex, index - 1)] !== undefined) {
+	                    // if we don't have mapping try do map fragment 1 letter smaller
+	                    result += mapping[formatString.substring(beginIndex, index - 1)];
+	                    index -= 1;
+	                } else {
+	                    // if we don't map anything just add fragment to result
+	                    result += fragment;
+	                }
+	            }
+	            beginIndex = index;
+	            i = index;
 	        }
 	
 	        // hack for Java single quote char ( '' -> '), part 2/2
