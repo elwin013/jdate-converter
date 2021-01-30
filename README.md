@@ -1,4 +1,4 @@
-# jdate-converter [![Build Status](https://travis-ci.org/elwin013/jdate-converter.svg?branch=master)](https://travis-ci.org/elwin013/jdate-converter)
+# jdate-converter
 
 A simple library to convert Java date & time format to JavaScript date & time format (used for example in moment.js).
 
