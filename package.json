@@ -1,6 +1,6 @@
 {
   "name": "jdate-converter",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "Java dateformat converter to JavaScript dateformat",
   "main": "src/jdate-converter.js",
   "scripts": {
