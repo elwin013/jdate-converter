@@ -31,6 +31,6 @@
     "babel-preset-es2015": "^6.24.1",
     "jslint": "^0.10.3",
     "mocha": "^3.3.0",
-    "webpack": "^1.13.1"
+    "webpack": "^5.74.0"
   }
 }
